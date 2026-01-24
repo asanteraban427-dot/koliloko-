@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOLILOKO ELECTRONICS ACCESSORIES</title>
+
+<style>
+:root{
+  --primary:#1e1e2f;
+  --secondary:#ff9800;
+  --light:#f4f6fb;
+  --white:#ffffff;
+  --radius:10px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:var(--light);
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg, var(--primary), #34345a);
+  color:#fff;
+  padding:30px 15px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  letter-spacing:1px;
+}
+
+/* NAV */
+nav{
+  background:#222;
+  display:none;
+  padding:12px;
+  text-align:center;
+}
+
+nav a{
+  color:#fff;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--secondary);
+}
+
+/* SECTIONS */
+section{
+  max-width:900px;
+  margin:30px auto;
+  background:var(--white);
+  padding:25px;
+  border-radius:var(--radius);
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.hidden{
+  display:none;
+}
+
+h2{
+  margin-top:0;
+  color:var(--primary);
+}
+
+/* FORMS */
+input{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+button{
+  margin-top:18px;
+  padding:12px;
+  width:100%;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#2d2d55;
+}
+
+/* PRODUCTS */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
+}
+
+.product-box{
+  background:#fafafa;
+  padding:18px;
+  border-radius:var(--radius);
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.06);
+  transition:transform 0.2s;
+}
+
+.product-box:hover{
+  transform:translateY(-5px);
+}
+
+.product-box h4{
+  margin:10px 0;
+}
+
+.product-box p{
+  color:var(--secondary);
+  font-weight:bold;
+  font-size:17px;
+}
+
+/* CART */
+#cart ul{
+  padding-left:18px;
+}
+
+#cart li{
+  margin-bottom:8px;
+}
+
+/* PAYMENT */
+.payment-boxes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:15px;
+}
+
+.payment-box{
+  border:2px solid #ddd;
+  padding:15px;
+  text-align:center;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:800;
+  background:#f9f9f9;
+}
+
+.payment-box.selected{
+  border-color:var(--secondary);
+  background:#fff4e0;
+}
+
+/* CONTACT */
+#contact p{
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>KOLILOKO ELECTRONICS ACCESSORIES</h1>
+</header>
+
+<nav id="nav">
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('products')">Products</a>
+  <a onclick="showSection('cart')">Cart</a>
+  <a onclick="showSection('contact')">Contact</a>
+</nav>
+
+<section id="register">
+  <h2>Create Account</h2>
+  <form onsubmit="registerUser(event)">
+    <input type="email" id="regEmail" placeholder="Email" required>
+    <input type="password" id="regPassword" placeholder="Password" required>
+    <input type="password" id="regConfirm" placeholder="Confirm Password" required>
+    <button>Register</button>
+  </form>
+</section>
+
+<section id="login">
+  <h2>Login</h2>
+  <form onsubmit="loginUser(event)">
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button>Login</button>
+  </form>
+</section>
+
+<section id="home" class="hidden">
+  <h2>Welcome</h2>
+  <p>Your trusted shop for quality electronic accessories at affordable prices.</p>
+</section>
+
+<section id="products" class="hidden">
+  <h2>Our Products</h2>
+
+  <div class="products-grid">
+    <div class="product-box">
+      <h4>Headphones</h4>
+      <p>TZS 30,000</p>
+      <button onclick="addToCart('Headphones',30000)">Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+      <h4>Power Bank</h4>
+      <p>TZS 45,000</p>
+      <button onclick="addToCart('Power Bank',45000)">Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+      <h4>USB Flash 32GB</h4>
+      <p>TZS 18,000</p>
+      <button onclick="addToCart('USB Flash 32GB',18000)">Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+      <h4>Bluetooth Speaker</h4>
+      <p>TZS 55,000</p>
+      <button onclick="addToCart('Bluetooth Speaker',55000)">Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+      <h4>Phone Charger</h4>
+      <p>TZS 12,000</p>
+      <button onclick="addToCart('Phone Charger',12000)">Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+      <h4>Smart Watch</h4>
+      <p>TZS 85,000</p>
+      <button onclick="addToCart('Smart Watch',85000)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<section id="cart" class="hidden">
+  <h2>Shopping Cart</h2>
+  <ul id="cartItems"></ul>
+  <p><strong>Total:</strong> TZS <span id="total">0</span></p>
+
+  <h3>Payment Method</h3>
+
+  <div class="payment-boxes">
+    <div class="payment-box" onclick="selectPayment('mpesa',event)">M-Pesa</div>
+    <div class="payment-box" onclick="selectPayment('airtel',event)">Airtel Money</div>
+    <div class="payment-box" onclick="selectPayment('tigo',event)">Tigo Pesa</div>
+    <div class="payment-box" onclick="selectPayment('nmb',event)">NMB</div>
+    <div class="payment-box" onclick="selectPayment('crdb',event)">CRDB</div>
+    <div class="payment-box" onclick="selectPayment('selcom',event)">SELCOM</div>
+  </div>
+
+  <div id="mpesa" class="hidden"><input placeholder="M-Pesa Phone"></div>
+  <div id="airtel" class="hidden"><input placeholder="Airtel Phone"></div>
+  <div id="tigo" class="hidden"><input placeholder="Tigo Phone"></div>
+  <div id="nmb" class="hidden"><input placeholder="NMB Account"></div>
+  <div id="crdb" class="hidden"><input placeholder="CRDB Account"></div>
+  <div id="selcom" class="hidden"><input placeholder="SELCOM Reference"></div>
+
+  <button onclick="payNow()">Pay Now</button>
+</section>
+
+<section id="contact" class="hidden">
+  <h2>Contact Us</h2>
+  <p>Email: support@koliloko.com</p>
+  <p>Phone: +255 700 000 000</p>
+</section>
+
+<script>
+let cart=[], selectedPayment="";
+
+function registerUser(e){
+  e.preventDefault();
+  if(regPassword.value!==regConfirm.value) return alert("Passwords do not match");
+  localStorage.setItem("user",JSON.stringify({email:regEmail.value,password:regPassword.value}));
+  alert("Registered successfully");
+}
+
+function loginUser(e){
+  e.preventDefault();
+  let user=JSON.parse(localStorage.getItem("user"));
+  if(user && user.email===loginEmail.value && user.password===loginPassword.value){
+    nav.style.display="block";
+    register.classList.add("hidden");
+    login.classList.add("hidden");
+    showSection("home");
+  } else alert("Invalid login");
+}
+
+function showSection(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  if(id==="cart") updateCart();
+}
+
+function addToCart(name,price){
+  cart.push({name,price});
+  alert(name+" added");
+}
+
+function updateCart(){
+  cartItems.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    let li=document.createElement("li");
+    li.textContent=`${i.name} - TZS ${i.price}`;
+    cartItems.appendChild(li);
+    total+=i.price;
+  });
+  totalEl.textContent=total;
+}
+
+function selectPayment(method,e){
+  selectedPayment=method;
+  ["mpesa","airtel","tigo","nmb","crdb","selcom"].forEach(id=>document.getElementById(id).classList.add("hidden"));
+  document.getElementById(method).classList.remove("hidden");
+  document.querySelectorAll(".payment-box").forEach(b=>b.classList.remove("selected"));
+  e.target.classList.add("selected");
+}
+
+function payNow(){
+  if(!cart.length) return alert("Cart empty");
+  if(!selectedPayment) return alert("Select payment");
+  alert("Payment successful via "+selectedPayment.toUpperCase());
+  cart=[]; updateCart();
+}
+</script>
+
+</body>
+</html>
